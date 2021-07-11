@@ -31,7 +31,7 @@ func swftsh_loop()
     var status: Bool
     
     repeat {
-        print("> ", terminator: "")
+        print("\(Host.current().localizedName ?? "") > ", terminator: "")
         guard let line = readLine() else { return }
         args = swftsh_split_line(line: line)
         status = swftsh_execute(args: args)
@@ -88,7 +88,13 @@ func swftsh_cd(_ args: [String]) -> Bool {
 
 func swftsh_help(_ args: [String]) -> Bool {
     print("This is SwiftyShell's help")
-    print("Currently displaying help message")
+    print("Currently displaying help message\n")
+    
+    print("SwiftyShell has these builtin commands")
+    
+    for command in builtin_str {
+        print("  \(command)")
+    }
     return true
 }
 
