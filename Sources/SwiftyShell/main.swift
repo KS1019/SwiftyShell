@@ -22,6 +22,7 @@ func main() {
     
     // Perform any shutdown/cleanup.
     print("Shutting down")
+    exit(EXIT_SUCCESS)
 }
 
 func swftsh_loop()
@@ -74,11 +75,11 @@ func swftsh_execute(args: [String]) -> Bool {
 }
 
 func swftsh_cd(_ args: [String]) -> Bool {
-    if args[1].isEmpty {
-        print("Error")
+    if args.count == 1 {
+        fputs("SwiftyShell: expected argument to \"cd\"\n", stderr)
     } else {
         if !FileManager().changeCurrentDirectoryPath(args[1]) {
-            print("Error on changeCurrentDirectoryPath")
+            perror("Error on changeCurrentDirectoryPath")
         }
     }
     
