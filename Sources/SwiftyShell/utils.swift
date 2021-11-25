@@ -38,7 +38,12 @@ func swftsh_split_line(line: String) -> [String] {
 }
 
 func swftsh_launch(args: [String]) -> Bool {
-    return true
+    let task = Process()
+    task.launchPath = "/usr/bin/env"
+    task.arguments = args
+    task.launch()
+    task.waitUntilExit()
+    return task.terminationStatus == 0
 }
 
 func swftsh_execute(args: [String]) -> Bool {
