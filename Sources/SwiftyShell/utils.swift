@@ -8,7 +8,7 @@ func swftsh_loop()
     //    value = "\\u@\\h:\\w\\$"
     //    print(value)
     
-    print(ProcessInfo.processInfo.environment["PS1"])
+    // print(ProcessInfo.processInfo.environment["PS1"])
     
     repeat {
         print("\(value ?? Host.current().localizedName ?? "") > ", terminator: "")

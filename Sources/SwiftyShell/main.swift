@@ -7,7 +7,7 @@ func main() {
     swftsh_loop();
     
     // Perform any shutdown/cleanup.
-    print("Shutting down")
+    // print("Shutting down")
     exit(EXIT_SUCCESS)
 }
 

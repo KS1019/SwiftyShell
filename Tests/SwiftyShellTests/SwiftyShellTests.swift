@@ -12,7 +12,7 @@ final class SwiftyShellTests: XCTestCase {
             return
         }
 
-        let fooBinary = productsDirectory.appendingPathComponent("SwiftyShell")
+        let fooBinary = productsDirectory.appendingPathComponent("swftsh")
 
         let process = Process()
         process.executableURL = fooBinary
@@ -26,7 +26,7 @@ final class SwiftyShellTests: XCTestCase {
         let data = pipe.fileHandleForReading.readDataToEndOfFile()
         let output = String(data: data, encoding: .utf8)
 
-        XCTAssertEqual(output, "Hello, world!\n")
+        XCTAssertEqual(output, "\(Host.current().localizedName ?? "") > ")
     }
 
     /// Returns path to the built products directory.
